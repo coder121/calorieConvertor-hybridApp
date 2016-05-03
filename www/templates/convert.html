@@ -1,0 +1,40 @@
+<ion-view view-title="Convertor">
+  <ion-content>
+    <div class="card">
+        <div class="item item-divider">
+          Enter total Calories
+        </div>
+<!--
+       <div class="list">-->
+       
+        <label class="item item-input">
+
+          <span class="input-label"><b>Calories</b></span>
+          <input type="number" ng-model="calories.total" name="calorie" >
+            </label>
+             <div class="row">
+                    <div class="col text-center">
+          <button class="button button-balanced  center" ng-click="convert()" type="submit">Convert</button>
+            </div>
+            </div>
+     
+
+      </div>
+       <div ng-repeat="item in indiviualCalorie">
+        <div class="item item-divider" >
+               {{item.food}}
+        </div>
+            
+        <div class="list" >
+
+        <a class="item item-thumbnail-left" href="#">
+          <img src="{{item.src}}">
+          
+          <p style="align:left;">It is equivalent to {{item.calories}} {{item.food}}</p>
+        </a>
+    </div>  
+ </div>
+      
+      
+  </ion-content>
+</ion-view>
