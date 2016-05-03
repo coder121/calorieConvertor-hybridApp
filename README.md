@@ -26,8 +26,8 @@ This app is built using ionic framework. I came across this idea when I started 
 ![SEARCH](http://i.imgur.com/chENv9L.png?1)
 
 ### CALORIE CONVERTOR
-
 You can enter the calories and the app will tell you equivalent calories based on popular food
+
 ![CONVERTOR](http://i.imgur.com/4gZCdZA.png?1)
 
 
