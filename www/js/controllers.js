@@ -110,20 +110,34 @@ angular.module('starter.controllers', [])
      
     
 })
-.controller('SearchCtrl', function($scope,$http,$ionicModal, $timeout){
+.controller('SearchCtrl',function($scope,$http,$ionicModal,$timeout,$cordovaToast){
+    
    $scope.search ={};
     $scope.searchItems=[];
 
   $scope.searchItem = function() {
-      var q= $scope.search['q'];
+     var q= $scope.search['q'];
      $http.get("http://api.nal.usda.gov/ndb/search/?format=json&q="+q+"&max=50&offset=0&api_key=qZGlx5pbXaZtrAu9j5T3nHoXRiF6HhoTmKaqrUGI ").then(function (res){
             $scope.response = res.data;
 //         console.log( $scope.response['list']);
 //            var ndbno=$scope.response['item'](0)['ndbno'];
            $scope.searchItems=$scope.response['list']['item']
 //           console.log($scope.searchItems);
+        },function myError(response) {
+        
+         $cordovaToast.show('Cannot find the item.', 'long', 'center').then(function(success) {
+            console.log("The toast was shown");
+        }, function (error) {
+            console.log("The toast was not shown due to " + error);
         });
-      //console.log($scope.username)
+    });
+     /* //console.log($scope.username)
+       $cordovaToast.show('Here is a message', 'long', 'center').then(function(success) {
+            console.log("The toast was shown");
+        }, function (error) {
+            console.log("The toast was not shown due to " + error);
+        });*/
+     
   };
     $scope.getItem=function(dish){
         var ndbno=dish['ndbno'];
